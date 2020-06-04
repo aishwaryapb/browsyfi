@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* CSS variables */
+
+:root {
+    --bg-color: black;
+    --primary-color: #1ed760;
+    --primary-text-color: white;
+    --heading-text-color: #485461;
+
+    --medium-black: #111111;
+    --light-black: #1d1d1d;
+
+    --base-font-size: 16px;
+    --xl-font-size: 24px;
+    --sm-font-size: 14px;
+    --xs-font-size: 12px;
+}
+
+/* Root style */
+
+body {
+    font-family: 'Manrope', sans-serif;
+    color: var(--primary-text-color);
+    overflow: hidden;
+    background-color: var(--bg-color);
+}
+
+body,
+.main,
+#root {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+/* Utility classes */
+
+.container {
+    padding: 1rem;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.center {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.col-1 {
+    width: 25%;
+}
+
+.col-2 {
+    width: 50%;
+}
+
+.col-3 {
+    width: 75%;
+}
+
+.col-4 {
+    width: 100%;
+}
+
+/* Custom classes */
+
+.loader {
+    align-self: center;
+    border: 14px solid var(--light-black);
+    border-radius: 50%;
+    border-top: 14px solid var(--medium-black);
+    border-bottom: 14px solid var(--medium-black);
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+}
+
+.header {
+    height: 20vh;
+    background-color: var(--medium-black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo {
+    align-self: center;
+}
+
+.featured-playlists {
+    height: 30vh;
+}
+
+.tracks {
+    height: 50vh;
+}
+
+/* Keyframes */
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Media queries */
