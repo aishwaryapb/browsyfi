@@ -12,7 +12,7 @@ export default ({ image, name, duration, artist, previewUrl }) => (
             }}>{name}</h4>
             <h6 className="m0 artist">{artist}</h6>
         </div>
-        <div className="col-1 text-right">
+        <div className="col-1 text-center">
             {msToTime(duration)}
         </div>
     </div>
