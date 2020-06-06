@@ -1,6 +1,8 @@
 import ReactDOM from 'react-dom';
-import './styles.css';
 import ApolloProvider from './ApolloProvider';
+import "react-multi-carousel/lib/styles.css";
+
+import './styles.css';
 
 ReactDOM.render(
   ApolloProvider,
