@@ -88,8 +88,20 @@ body,
     width: 100%;
 }
 
-.heading {
-    opacity: 0.4;
+.mb {
+    margin-bottom: 2vh;
+}
+
+.m0 {
+    margin: 0;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
 }
 
 /* Custom classes */
@@ -122,6 +134,7 @@ body,
 .playlist-container {
     position: relative;
     width: 150px;
+    cursor: pointer;
 }
 
 .playlist-img {
@@ -145,6 +158,23 @@ body,
 
 .playlist-container:hover .playlist-overlay {
     opacity: 1;
+}
+
+.thumbnail {
+    height: 40px;
+    width: auto;
+}
+
+.track-name {
+    cursor: pointer;
+}
+
+.track-name:hover {
+    text-shadow: 0.5px 0.5px var(--primary-color);
+}
+
+.artist {
+    opacity: 0.4;
 }
 
 /* Keyframes */

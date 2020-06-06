@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Carousel from "react-multi-carousel";
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
+import { playlist } from '../context/PlaylistContext';
 
 const responsive = {
     largeDesktop: {
         breakpoint: { max: 4000, min: 3000 },
-        items: 10
+        items: 10,
+        slidesToSlide: 5
     },
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 8
+        items: 8,
+        slidesToSlide: 4
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
@@ -27,11 +30,13 @@ const responsive = {
 };
 
 export default () => {
-    const { data: { authenticate: auth } } = useQuery(GET_TOKEN);
+    const { dispatch } = useContext(playlist);
+    const auth = useQuery(GET_TOKEN).data;
+    const accessToken = auth?.authenticate?.accessToken;
     const { data } = useQuery(FETCH_FEATURED_PLAYLISTS, {
         context: {
             headers: {
-                "Authorization": `Bearer ${auth.accessToken}`
+                "Authorization": `Bearer ${accessToken}`
             }
         }
     });
@@ -44,7 +49,10 @@ export default () => {
                 <Carousel responsive={responsive} infinite swipeable>
                     {
                         playlists.map(playlist => (
-                            <div key={playlist.id} className="playlist-container">
+                            <div key={playlist.id} className="playlist-container" onClick={() => dispatch({
+                                type: "SELECT_PLAYLIST",
+                                payload: playlist
+                            })}>
                                 <img src={playlist.imageUrl} alt="playlist-cover" className="playlist-img" />
                                 <div className="playlist-overlay">{playlist.name}</div>
                             </div>
